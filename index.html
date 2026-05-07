@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MF TIRES HUB — Вантажні шини у Києві</title>
+  <meta name="description" content="MF Tires Hub — продаж нових та вживаних вантажних шин і дисків, ремонт шин будь-якої складності, шиномонтаж у Києві. Доставка по Україні."/>
+  <meta name="keywords" content="вантажні шини Київ, шиномонтаж, ремонт шин, вживані шини, MF Tires Hub"/>
+  <meta property="og:title" content="MF TIRES HUB — Вантажні шини у Києві"/>
+  <meta property="og:description" content="Продаж нових та вживаних шин, ремонт, шиномонтаж. Гарантія на кожне колесо."/>
+  <meta property="og:type" content="website"/>
+
+  <!-- Tailwind CDN (utility classes in markup) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom stylesheet (design tokens, components) -->
+  <link rel="stylesheet" href="css/style.css"/>
+  <!-- Favicon: MF letters cropped from logo image, rounded corners, 64x64 PNG -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,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"/>
+  <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Основна навігація">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="MF Tires Hub — на головну">
+      <img src="img/logo.jpg" alt="MF Tires Hub лого" width="52" height="52"/>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#services">Послуги</a></li>
+      <li><a href="#why">Про нас</a></li>
+      <li><a href="#delivery">Доставка</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+    </ul>
+
+    <a href="tel:+380631715111" class="btn btn-primary nav-cta" aria-label="Подзвонити">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.86 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.77 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.9-1.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Зателефонувати
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Відкрити меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Мобільне меню">
+  <a href="#services">Послуги</a>
+  <a href="#why">Про нас</a>
+  <a href="#delivery">Доставка</a>
+  <a href="#contacts">Контакти</a>
+  <a href="tel:+380631715111" class="btn btn-primary" style="margin-top:1rem; font-size:1.1rem;">
+    Зателефонувати
+  </a>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section id="hero" aria-label="Головний блок">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge" role="note">
+        <span>🔥</span> Вантажні шини · Київ
+      </div>
+
+      <h1 class="hero-title">
+        MF<br/>
+        <em>TIRES</em><br/>
+        HUB
+      </h1>
+
+      <p class="hero-slogan">
+        Ми не просто продаємо шини — ми допомагаємо людям!<br/>
+        Нові та вживані шини для вантажівок і тракторів. Ремонт. Шиномонтаж.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+          Наші послуги
+        </a>
+        <a href="#contacts" class="btn btn-outline">Зв'язатись</a>
+      </div>
+
+      <div class="hero-stats" role="list" aria-label="Наші показники">
+        <div class="stat" role="listitem">
+          <strong data-count="500" data-suffix="+">500+</strong>
+          <span>Шин у наявності</span>
+        </div>
+        <div class="stat" role="listitem">
+          <strong data-count="100" data-suffix="%">100%</strong>
+          <span>Перевірено майстрами</span>
+        </div>
+        <div class="stat" role="listitem">
+          <strong data-count="3" data-suffix="">3</strong>
+          <span>Способи доставки</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    Гортай
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════ -->
+<section id="services" aria-labelledby="services-title">
+  <div class="container">
+    <p class="section-label">Що ми робимо</p>
+    <h2 class="section-title" id="services-title">Наші Послуги</h2>
+    <p style="color:var(--silver); max-width:560px; margin-bottom:0;">
+      Повний спектр послуг із вантажними шинами — від підбору до монтажу та ремонту.
+    </p>
+
+    <div class="services-grid">
+
+      <article class="service-card fade-up">
+        <div class="service-icon" aria-hidden="true">🛞</div>
+        <h3>Продаж нових шин</h3>
+        <p>Широкий асортимент нових шин для вантажних автомобілів і тракторів від перевірених виробників. Допоможемо з підбором під ваш запит і бюджет.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon" aria-hidden="true">♻️</div>
+        <h3>Вживані шини</h3>
+        <p>Якісні вживані шини за вигідними цінами. Кожна позиція проходить ретельну перевірку нашими майстрами — гарантія надійності на кожне колесо.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon" aria-hidden="true">💿</div>
+        <h3>Диски</h3>
+        <p>Продаж дисків для вантажної техніки. Великий вибір: сталеві та легкосплавні диски для різних марок і моделей.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon" aria-hidden="true">🔧</div>
+        <h3>Ремонт шин</h3>
+        <p>Ремонт пошкоджень будь-якої складності: від дрібних проколів до відновлення бокових порізів. Швидко, якісно, з гарантією.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon" aria-hidden="true">🚛</div>
+        <h3>Вантажний шиномонтаж</h3>
+        <p>Професійний монтаж та демонтаж шин для вантажних автомобілів, тягачів, причепів і спецтехніки. Балансування та перевірка тиску.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <div class="service-icon" aria-hidden="true">📦</div>
+        <h3>Доставка по Україні</h3>
+        <p>Відправляємо замовлення Новою поштою та Delivery по всій Україні. Можливий самовивіз з нашого складу в Києві.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     WHY US
+═══════════════════════════════════════ -->
+<section id="why" aria-labelledby="why-title">
+  <div class="container">
+    <p class="section-label">Чому обирають нас</p>
+    <h2 class="section-title" id="why-title">Наші Переваги</h2>
+
+    <div class="why-grid">
+      <ul class="why-list" aria-label="Переваги компанії">
+
+        <li class="why-item fade-up">
+          <div class="why-icon" aria-hidden="true">✅</div>
+          <div>
+            <h4>Перевірка майстрами</h4>
+            <p>Кожна шина — нова чи вживана — проходить ретельний технічний контроль перед продажем.</p>
+          </div>
+        </li>
+
+        <li class="why-item fade-up">
+          <div class="why-icon" aria-hidden="true">🛡️</div>
+          <div>
+            <h4>Гарантія на кожне колесо</h4>
+            <p>Ми впевнені в якості своєї продукції та надаємо гарантію на всі реалізовані шини.</p>
+          </div>
+        </li>
+
+        <li class="why-item fade-up">
+          <div class="why-icon" aria-hidden="true">💰</div>
+          <div>
+            <h4>Вигідні ціни</h4>
+            <p>Пряма робота з постачальниками дозволяє пропонувати конкурентні ціни без зайвих націнок.</p>
+          </div>
+        </li>
+
+        <li class="why-item fade-up">
+          <div class="why-icon" aria-hidden="true">⚡</div>
+          <div>
+            <h4>Швидке обслуговування</h4>
+            <p>Цінуємо ваш час. Оперативна відповідь на запити, швидке оформлення та відправка.</p>
+          </div>
+        </li>
+
+      </ul>
+
+      <div class="why-visual fade-up" aria-hidden="true">
+        <div class="why-visual-card">
+          <span class="big-num" data-count="100" data-suffix="%">100%</span>
+          <p>Якість гарантована</p>
+        </div>
+        <div class="why-visual-cards-row">
+          <div class="why-visual-card">
+            <span class="big-num" data-count="5" data-suffix="+">5+</span>
+            <p>Років досвіду</p>
+          </div>
+          <div class="why-visual-card">
+            <span class="big-num" data-count="1000" data-suffix="+">1000+</span>
+            <p>Задоволених клієнтів</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     DELIVERY
+═══════════════════════════════════════ -->
+<section id="delivery" aria-labelledby="delivery-title">
+  <div class="container">
+    <p class="section-label">Отримайте замовлення</p>
+    <h2 class="section-title" id="delivery-title">Доставка та Самовивіз</h2>
+
+    <div class="delivery-grid">
+
+      <article class="delivery-card fade-up">
+        <div class="d-icon" aria-hidden="true">📮</div>
+        <h3>Нова Пошта</h3>
+        <p>Швидка доставка по всій Україні. Відправляємо наступного дня після оплати.</p>
+      </article>
+
+      <article class="delivery-card fade-up">
+        <div class="d-icon" aria-hidden="true">🚚</div>
+        <h3>Delivery</h3>
+        <p>Альтернативна служба доставки для великогабаритних замовлень по всій країні.</p>
+      </article>
+
+      <article class="delivery-card fade-up">
+        <div class="d-icon" aria-hidden="true">🏭</div>
+        <h3>Самовивіз</h3>
+        <p>м. Київ, вул. Родини Бунге, 7. Пн–Сб: 8:00–18:00. Зручне розташування.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     CTA BANNER
+═══════════════════════════════════════ -->
+<section id="cta" aria-label="Заклик до дії">
+  <div class="container">
+    <p class="section-label">Готові допомогти</p>
+    <h2 class="section-title">Потрібна консультація?</h2>
+    <p>Зв'яжіться з нами — підберемо шини під вашу техніку та бюджет, відповімо на всі питання.</p>
+
+    <a href="tel:+380631715111" class="contact-phone" aria-label="Телефон: +38 063 171 51 11">
+      +38 (063) 171-51-11
+    </a>
+
+    <div class="cta-actions">
+      <a href="https://t.me/+380631715111" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+        Telegram
+      </a>
+      <a href="viber://chat?number=+380631715111" class="btn btn-outline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 0C5.52 0 .6 4.92.6 10.8c0 3.12 1.32 5.88 3.48 7.8V22.2l3.72-2.04c1.08.3 2.28.48 3.48.48 5.88 0 10.8-4.92 10.8-10.8S17.28 0 11.4 0zm1.08 14.64c-.24.12-.48.12-.72 0l-2.28-1.44c-.24-.12-.48-.36-.6-.6l-1.44-2.28c-.12-.24-.12-.48 0-.72l.6-.6c.24-.24.6-.24.84 0l1.44 1.44 3.6-3.6c.24-.24.6-.24.84 0l.6.6c.24.24.24.6 0 .84l-4.2 4.2-.72.72z"/></svg>
+        Viber
+      </a>
+      <a href="https://wa.me/380631715111" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.126 1.529 5.858L0 24l6.335-1.652A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.273-1.538l-.379-.224-3.922 1.025 1.044-3.814-.247-.393A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     CONTACTS
+═══════════════════════════════════════ -->
+<section id="contacts" aria-labelledby="contacts-title">
+  <div class="container">
+    <p class="section-label">Де нас знайти</p>
+    <h2 class="section-title" id="contacts-title">Контакти</h2>
+
+    <div class="contacts-grid">
+
+      <div class="contact-info">
+
+        <div class="contact-item fade-up">
+          <div class="c-icon" aria-hidden="true">📍</div>
+          <div>
+            <h4>Адреса</h4>
+            <p>м. Київ, вул. Родини Бунге, 7</p>
+          </div>
+        </div>
+
+        <div class="contact-item fade-up">
+          <div class="c-icon" aria-hidden="true">📞</div>
+          <div>
+            <h4>Телефон</h4>
+            <a href="tel:+380631715111">+38 (063) 171-51-11</a>
+          </div>
+        </div>
+
+        <div class="contact-item fade-up">
+          <div class="c-icon" aria-hidden="true">✉️</div>
+          <div>
+            <h4>E-mail</h4>
+            <a href="mailto:mftireshub@gmail.com">mftireshub@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="socials-wrap fade-up">
+          <h3>Соціальні мережі</h3>
+          <div class="socials" role="list">
+
+            <a href="https://www.facebook.com/profile.php?id=61572018833529" target="_blank" rel="noopener noreferrer" class="social-btn" role="listitem" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+
+            <a href="https://www.instagram.com/mftireshub.ua" target="_blank" rel="noopener noreferrer" class="social-btn" role="listitem" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+
+            <a href="https://t.me/mftireshub" target="_blank" rel="noopener noreferrer" class="social-btn" role="listitem" aria-label="Telegram канал">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+              Telegram
+            </a>
+
+            <a href="https://www.tiktok.com/@mf.tires.hub" target="_blank" rel="noopener noreferrer" class="social-btn" role="listitem" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              TikTok
+            </a>
+
+          </div>
+        </div>
+
+      </div><!-- /.contact-info -->
+
+      <!-- Map -->
+      <div class="map-embed fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.8!2d30.4833!3d50.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z0KLQuNGA0LAg0KDQvtC00LjQvdC4INCR0YPQvdCz0LUsIDcsINCa0LjRl9Cy!5e0!3m2!1suk!2sua!4v1700000000000"
+          width="100%"
+          height="380"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Карта — MF Tires Hub, вул. Родини Бунге 7, Київ"
+          aria-label="Google Maps: розташування MF Tires Hub у Києві">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container footer-inner">
+
+    <div class="footer-logo">
+      <img src="img/logo.jpg" alt="MF Tires Hub" width="40" height="40"/>
+      <span>MF TIRES HUB</span>
+    </div>
+
+    <p>&copy; <span id="year"></span> MF Tires Hub. Усі права захищені.</p>
+
+    <ul class="footer-links" aria-label="Додаткові посилання">
+      <li><a href="#services">Послуги</a></li>
+      <li><a href="#contacts">Контакти</a></li>
+      <li><a href="mailto:mftireshub@gmail.com">Email</a></li>
+    </ul>
+
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
