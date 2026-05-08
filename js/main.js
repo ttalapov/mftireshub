@@ -1,93 +1,121 @@
-/* =============================================
+/* ========================================
    MF TIRES HUB — main.js
-   ============================================= */
+   ======================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+'use strict';
 
-  /* ── Navbar scroll ── */
-  const navbar = document.getElementById('navbar');
-  const onScroll = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
-  };
+// ---- Header scroll effect ----
+(function () {
+  const header = document.getElementById('header');
+  if (!header) return;
+
+  const THRESHOLD = 60;
+
+  function onScroll() {
+    if (window.scrollY > THRESHOLD) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  onScroll(); // initial check
+})();
 
-  /* ── Hamburger / Mobile menu ── */
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
 
-  hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+// ---- Mobile burger menu ----
+(function () {
+  const burger = document.getElementById('burger');
+  const menu   = document.getElementById('mobile-menu');
+  if (!burger || !menu) return;
+
+  burger.addEventListener('click', function () {
+    const isOpen = !menu.classList.contains('hidden');
+
+    if (isOpen) {
+      menu.classList.add('hidden');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    } else {
+      menu.classList.remove('hidden');
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+    }
   });
 
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
+  // Close on nav link click (mobile)
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.add('hidden');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
     });
   });
+})();
 
-  /* ── Scroll fade-in ── */
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+
+// ---- Smooth scroll for anchor links ----
+(function () {
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      const targetId = anchor.getAttribute('href');
+      if (targetId === '#') return;
+
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      e.preventDefault();
+
+      const headerHeight = document.getElementById('header')?.offsetHeight || 72;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+
+      window.scrollTo({ top, behavior: 'smooth' });
     });
-  }, { threshold: 0.12 });
+  });
+})();
 
-  document.querySelectorAll('.fade-up').forEach((el, i) => {
-    el.style.transitionDelay = (i % 4) * 0.1 + 's';
+
+// ---- Scroll reveal ----
+(function () {
+  const elements = document.querySelectorAll(
+    '.service-card, .why-card, .delivery-card, .contact-info-card, .section-header'
+  );
+
+  if (!elements.length) return;
+
+  elements.forEach(function (el) {
+    el.classList.add('reveal');
+  });
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  elements.forEach(function (el) {
     observer.observe(el);
   });
+})();
 
-  /* ── Active nav link on scroll ── */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
 
-  const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-      }
-    });
-  }, { threshold: 0.4 });
+// ---- Staggered reveal for grid children ----
+(function () {
+  const grids = document.querySelectorAll('.grid');
 
-  sections.forEach(s => sectionObserver.observe(s));
-
-  /* ── Smooth scroll for all anchor links ── */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  grids.forEach(function (grid) {
+    const children = Array.from(grid.children);
+    children.forEach(function (child, i) {
+      if (child.classList.contains('reveal')) {
+        child.style.transitionDelay = (i * 0.08) + 's';
       }
     });
   });
-
-  /* ── Counter animation ── */
-  const counters = document.querySelectorAll('[data-count]');
-  const countObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const target = parseInt(el.dataset.count);
-      const suffix = el.dataset.suffix || '';
-      let start = 0;
-      const step = target / 60;
-      const timer = setInterval(() => {
-        start = Math.min(start + step, target);
-        el.textContent = Math.floor(start) + suffix;
-        if (start >= target) clearInterval(timer);
-      }, 20);
-      countObserver.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(c => countObserver.observe(c));
-});
+})();
