@@ -119,3 +119,55 @@
     });
   });
 })();
+
+
+// ---- Count-up animation ----
+(function () {
+  const stats = document.querySelectorAll('.stat-number[data-target]');
+  if (!stats.length) return;
+
+  function countUp(el) {
+    const target   = +el.getAttribute('data-target');
+    const suffix   = el.querySelector('.text-brand-red');
+    const duration = 1800; // ms
+    const steps    = 60;
+    const interval = duration / steps;
+    let current    = 0;
+
+    // Easing: ease-out cubic
+    function easeOut(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    let step = 0;
+    const timer = setInterval(function () {
+      step++;
+      const progress = easeOut(step / steps);
+      current = Math.round(progress * target);
+
+      // Update text keeping the suffix span intact
+      el.childNodes[0].textContent = current;
+
+      if (step >= steps) {
+        el.childNodes[0].textContent = target;
+        clearInterval(timer);
+      }
+    }, interval);
+  }
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          countUp(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  stats.forEach(function (el) {
+    observer.observe(el);
+  });
+})();
