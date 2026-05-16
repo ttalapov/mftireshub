@@ -198,46 +198,177 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
 
-          <article class="service-card group">
-            <div class="service-icon-wrap">
-              <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-dasharray="4 2"/><circle cx="12" cy="12" r="5.5"/></svg>
-            </div>
-            <h3 class="font-display text-xl font-bold mb-3 group-hover:text-brand-red transition-colors">Нові вантажні шини</h3>
-            <p class="text-brand-muted leading-relaxed">Широкий асортимент нових шин для вантажних автомобілів та спецтехніки від перевірених виробників</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="tag">Вантажні</span>
-              <span class="tag">Спецтехніка</span>
-			  <span class="tag">Бренди</span>
-              <span class="tag">Гарантія</span>
+          <article class="service-card flip-card" id="card-new-tires">
+            <div class="flip-card-inner">
+
+              <!-- FRONT -->
+              <div class="flip-card-front">
+                <div class="service-icon-wrap">
+                  <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-dasharray="4 2"/><circle cx="12" cy="12" r="5.5"/></svg>
+                </div>
+                <h3 class="font-display text-xl font-bold mb-3">Нові вантажні шини</h3>
+                <p class="text-brand-muted leading-relaxed">Широкий асортимент нових шин для вантажних автомобілів та спецтехніки від перевірених виробників</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag">Вантажні</span>
+                  <span class="tag">Спецтехніка</span>
+                  <button class="tag tag-btn flip-trigger" aria-expanded="false">Бренди</button>
+                  <span class="tag">Гарантія</span>
+                </div>
+              </div>
+
+              <!-- BACK -->
+              <div class="flip-card-back" title="Натисніть для повернення" style="cursor:pointer; display:flex; flex-direction:column; justify-content:flex-start;">
+                <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.45rem 0.75rem; font-size:0.8rem; line-height:1.6; color:#c8c8c8; font-family:'Nunito',sans-serif; font-weight:500; width:100%;">
+                  <span>Aeolus</span>
+                  <span>Apollo</span>
+                  <span>Barum</span>
+                  <span style="color:#c9181e;">Bridgestone</span>
+                  <span style="color:#c9181e;">Continental</span>
+                  <span>Dunlop</span>
+                  <span>Firemax</span>
+                  <span>Firestone</span>
+                  <span>Goodride</span>
+                  <span style="color:#c9181e;">Goodyear</span>
+                  <span>GT</span>
+                  <span>Hankook</span>
+                  <span>Jinyu</span>
+                  <span>Long March</span>
+                  <span>Matador</span>
+                  <span style="color:#c9181e;">Michelin</span>
+                  <span>Next Tread</span>
+                  <span style="color:#c9181e;">Pirelli</span>
+                  <span>Pneu Laurent</span>
+                  <span>Sailun</span>
+                  <span>Sava</span>
+                  <span>Semperit</span>
+                  <span>Taurus</span>
+                  <span>Teamstar</span>
+                  <span>Triangle</span>
+                  <span>Truckstar</span>
+                  <span>Uniroyal</span>
+                  <span>WestLake</span>
+                </div>
+              </div>
+
             </div>
           </article>
 
-          <article class="service-card group">
-            <div class="service-icon-wrap">
-              <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-dasharray="4 2"/><circle cx="12" cy="12" r="5.5"/></svg>
-            </div>
-            <h3 class="font-display text-xl font-bold mb-3 group-hover:text-brand-red transition-colors">Вживані шини</h3>
-            <p class="text-brand-muted leading-relaxed">Кожна вживана шина проходить ретельну перевірку майстрами. Якість підтверджена — ціна доступна</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="tag">Перевірені</span>
-			  <span class="tag">Асортимент</span>
-			  <span class="tag">Розміри</span>
-              <span class="tag">Ціни</span>
-              
+          <article class="service-card flip-card" id="card-used-tires">
+            <div class="flip-card-inner">
+
+              <!-- FRONT -->
+              <div class="flip-card-front">
+                <div class="service-icon-wrap">
+                  <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-dasharray="4 2"/><circle cx="12" cy="12" r="5.5"/></svg>
+                </div>
+                <h3 class="font-display text-xl font-bold mb-3">Вживані шини</h3>
+                <p class="text-brand-muted leading-relaxed">Кожна вживана шина проходить ретельну перевірку майстрами. Якість підтверджена — ціна доступна</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag">Перевірені</span>
+                  <span class="tag">Асортимент</span>
+                  <button class="tag tag-btn flip-trigger" aria-expanded="false">Розміри</button>
+                  <span class="tag">Ціни</span>
+                </div>
+              </div>
+
+              <!-- BACK: розміри згруповані по діаметру -->
+              <div class="flip-card-back" title="Натисніть для повернення" style="cursor:pointer; display:flex; flex-direction:column; justify-content:flex-start;">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 1rem; font-size:0.8rem; line-height:1.6; color:#c8c8c8; font-family:'Nunito',sans-serif; font-weight:500; width:100%;">
+
+                  <!-- Ліва: R15 R17.5 R19.5 R24 R25 -->
+                  <div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-bottom:0.2rem;">R15</div>
+                    <div>7.5R15</div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-top:0.65rem; margin-bottom:0.2rem;">R17.5</div>
+                    <div>7.5 · 8.5 · 9.5</div>
+                    <div>205/65 · 205/75</div>
+                    <div>215/75 · 225/75</div>
+                    <div>235/75 · 245/70</div>
+                    <div>265/70</div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-top:0.65rem; margin-bottom:0.2rem;">R19.5</div>
+                    <div>245/70 · 265/70</div>
+                    <div>285/70 · 305/70</div>
+                    <div>385/55 · 435/50</div>
+                    <div>445/45</div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-top:0.65rem; margin-bottom:0.2rem;">R24 · R25</div>
+                    <div>380/70R24</div>
+                    <div>385/95 · 445/95</div>
+                  </div>
+
+                  <!-- Права: R20 R22.5 -->
+                  <div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-bottom:0.2rem;">R20</div>
+                    <div>9.00 · 10.00 · 12.00</div>
+                    <div>12.5 · 14.00 · 14.5</div>
+                    <div>16.00 · 335/80</div>
+                    <div>365/80 · 365/85</div>
+                    <div>368/85 · 395/85</div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-top:0.65rem; margin-bottom:0.2rem;">R22.5</div>
+                    <div>9 · 10 · 11 · 13</div>
+                    <div>255/70 · 275/70</div>
+                    <div>275/80 · 285/70</div>
+                    <div>295/55 · 295/60</div>
+                    <div>295/75 · 295/80</div>
+                    <div>305/70 · 315/60</div>
+                    <div>315/70 · 315/80</div>
+                    <div>355/50 · 375/50</div>
+                    <div>385/55 · 385/65</div>
+                    <div>425/65 · 435/50</div>
+                    <div>445/65 · 445/75</div>
+                    <div>455/40 · 455/45</div>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </article>
 
-          <article class="service-card group">
-            <div class="service-icon-wrap">
-              <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="5.5" r="1"/><circle cx="17.99" cy="8.75" r="1"/><circle cx="17.99" cy="15.25" r="1"/><circle cx="12" cy="18.5" r="1"/><circle cx="6.01" cy="15.25" r="1"/><circle cx="6.01" cy="8.75" r="1"/></svg>
-            </div>
-            <h3 class="font-display text-xl font-bold mb-3 group-hover:text-brand-red transition-colors">Диски</h3>
-            <p class="text-brand-muted leading-relaxed">Продаж дисків для вантажних автомобілів. Великий вибір розмірів та конфігурацій для будь-яких потреб</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="tag">Сталеві</span>
-			  <span class="tag">Легкосплавні</span>
-			  <span class="tag">Бренди</span>
-              <span class="tag">Розміри</span>
+          <article class="service-card flip-card" id="card-disks">
+            <div class="flip-card-inner">
+
+              <!-- FRONT -->
+              <div class="flip-card-front">
+                <div class="service-icon-wrap">
+                  <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="5.5" r="1"/><circle cx="17.99" cy="8.75" r="1"/><circle cx="17.99" cy="15.25" r="1"/><circle cx="12" cy="18.5" r="1"/><circle cx="6.01" cy="15.25" r="1"/><circle cx="6.01" cy="8.75" r="1"/></svg>
+                </div>
+                <h3 class="font-display text-xl font-bold mb-3">Диски</h3>
+                <p class="text-brand-muted leading-relaxed">Продаж дисків для вантажних автомобілів. Великий вибір розмірів та конфігурацій для будь-яких потреб</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag">Сталеві</span>
+                  <span class="tag">Легкосплавні</span>
+                  <span class="tag">Бренди</span>
+                  <button class="tag tag-btn flip-trigger" aria-expanded="false">Розміри</button>
+                </div>
+              </div>
+
+              <!-- BACK: розміри дисків згруповані по діаметру -->
+              <div class="flip-card-back" title="Натисніть для повернення" style="cursor:pointer; display:flex; flex-direction:column; justify-content:flex-start;">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 1rem; font-size:0.8rem; line-height:1.6; color:#c8c8c8; font-family:'Nunito',sans-serif; font-weight:500; width:100%;">
+
+                  <!-- Ліва: R17.5 + R19.5 -->
+                  <div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-bottom:0.2rem;">R17.5</div>
+                    <div>6.00×17.5</div>
+                    <div>6.5×17.5</div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-top:0.65rem; margin-bottom:0.2rem;">R19.5</div>
+                    <div>6.75×19.5</div>
+                    <div>7.5×19.5</div>
+                    <div>14.00×19.5</div>
+                  </div>
+
+                  <!-- Права: R22.5 -->
+                  <div>
+                    <div style="color:#c9181e; font-family:Oswald,sans-serif; font-weight:600; font-size:0.82rem; margin-bottom:0.2rem;">R22.5</div>
+                    <div>7.5×22.5</div>
+                    <div>8.25×22.5</div>
+                    <div>9.00×22.5</div>
+                    <div>11.75×22.5</div>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </article>
 
@@ -253,17 +384,37 @@
             </div>
           </article>
 
-          <article class="service-card group md:col-span-1">
-            <div class="service-icon-wrap">
-              <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <h3 class="font-display text-xl font-bold mb-3 group-hover:text-brand-red transition-colors">Вантажний шиномонтаж</h3>
-            <p class="text-brand-muted leading-relaxed">Професійний шиномонтаж вантажних автомобілів та спецтехніки. Сучасне обладнання, досвідчені майстри, швидке виконання</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="tag">Вантажні</span>
-              <span class="tag">Спецтехніка</span>
-              <span class="tag">Балансування</span>
-              <span class="tag">Режим роботи</span>
+          <article class="service-card flip-card md:col-span-1" id="card-truck-service">
+            <div class="flip-card-inner">
+
+              <!-- FRONT -->
+              <div class="flip-card-front">
+                <div class="service-icon-wrap">
+                  <svg class="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <h3 class="font-display text-xl font-bold mb-3">Вантажний шиномонтаж</h3>
+                <p class="text-brand-muted leading-relaxed">Професійний шиномонтаж вантажних автомобілів та спецтехніки. Сучасне обладнання, досвідчені майстри, швидке виконання</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag">Вантажні</span>
+                  <span class="tag">Спецтехніка</span>
+                  <span class="tag">Балансування</span>
+                  <button class="tag tag-btn flip-trigger" aria-expanded="false">Режим роботи</button>
+                </div>
+              </div>
+
+              <!-- BACK: графік роботи -->
+              <div class="flip-card-back" title="Натисніть для повернення" style="cursor:pointer; display:flex; flex-direction:column; justify-content:flex-start;">
+                <div style="font-size:0.8rem; line-height:1.6; font-family:'Nunito',sans-serif; font-weight:500; width:100%;">
+                  <div style="display:grid; grid-template-columns:auto auto; justify-content:space-between; gap:0.45rem 1.5rem;">
+                    <span style="color:#c9181e;">Понеділок</span><span style="color:#c8c8c8;">9:00 – 18:00</span>
+                    <span style="color:#c9181e;">Вівторок</span><span style="color:#c8c8c8;">9:00 – 18:00</span>
+                    <span style="color:#c9181e;">Середа</span><span style="color:#c8c8c8;">9:00 – 18:00</span>
+                    <span style="color:#c9181e;">Четвер</span><span style="color:#c8c8c8;">9:00 – 18:00</span>
+                    <span style="color:#c9181e;">П'ятниця</span><span style="color:#c8c8c8;">9:00 – 18:00</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </article>
 
