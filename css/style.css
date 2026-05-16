@@ -449,3 +449,65 @@ body {
     font-size: 1.5rem;
   }
 }
+
+
+/* ---- Tag button (Бренди, Розміри тощо) ---- */
+.tag-btn {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(201,24,30,0.35);
+  color: #c9181e;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.tag-btn:hover {
+  background: #c9181e;
+  color: #ffffff;
+  border-color: #c9181e;
+}
+
+
+/* ---- Flip card ---- */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-card-front {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  cursor: pointer;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+/* ---- Тонкий скролбар у flip-back ---- */
+.flip-card-back::-webkit-scrollbar {
+  width: 3px;
+}
+.flip-card-back::-webkit-scrollbar-track {
+  background: transparent;
+}
+.flip-card-back::-webkit-scrollbar-thumb {
+  background: rgba(201,24,30,0.4);
+  border-radius: 2px;
+}
