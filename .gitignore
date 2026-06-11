@@ -1,0 +1,9 @@
+# Залежності (на майбутнє, під Tailwind CLI)
+node_modules/
+
+# ОС / редактори
+Thumbs.db
+.DS_Store
+
+# Локальні інструменти
+.claude/

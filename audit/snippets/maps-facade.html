@@ -1,0 +1,63 @@
+<!--
+  Клік-фасад для Google Maps замість одразу-iframe.
+  Замінює index.html:649–661. Економить ~1.2–1.5 MB скриптів Google
+  для кожного, хто доскролив до контактів, але не потребує карти.
+
+  Як працює: показуємо легкий плейсхолдер (фон + пін + кнопка);
+  iframe створюється лише по кліку. Стилі — наявними Tailwind-класами
+  з білда + кілька інлайнів (або винести в main.css).
+-->
+
+<!-- HTML: замість поточного <div class="rounded-2xl ...."><iframe ...></div> -->
+<div id="map-facade"
+     class="rounded-2xl overflow-hidden border border-brand-border h-80 lg:h-auto min-h-[320px] shadow-2xl relative flex items-center justify-center bg-brand-card"
+     role="button" tabindex="0"
+     aria-label="Показати карту: MF Tires Hub, вул. Родини Бунґе 7, Київ">
+  <div class="absolute inset-0 bg-noise opacity-30" aria-hidden="true"></div>
+  <div class="relative z-10 text-center px-4">
+    <svg class="w-12 h-12 text-brand-red mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+    </svg>
+    <p class="font-display font-semibold mb-1">м. Київ, вул. Родини Бунґе, 7</p>
+    <p class="text-brand-muted text-sm mb-4">Натисніть, щоб завантажити карту Google</p>
+    <span class="btn-secondary" style="pointer-events:none">Показати карту</span>
+  </div>
+</div>
+
+<!-- JS: додати в js/ui.js (або окремим map.js) -->
+<script>
+(function () {
+  'use strict';
+  var facade = document.getElementById('map-facade');
+  if (!facade) return;
+
+  var MAP_SRC = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.834!2d30.4093055!3d50.4167967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cb4b71620c89%3A0x3cad4edb0c7d48bd!2sMF%20TIRES%20HUB!5e0!3m2!1suk!2sua!4v1715000000000!5m2!1suk!2sua';
+
+  function loadMap() {
+    var iframe = document.createElement('iframe');
+    iframe.src = MAP_SRC;
+    iframe.title = 'MF Tires Hub на карті Києва';
+    iframe.width = '100%';
+    iframe.height = '100%';
+    iframe.style.cssText = 'border:0; min-height:320px; position:absolute; inset:0';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    facade.innerHTML = '';
+    facade.appendChild(iframe);
+    facade.removeAttribute('role');
+    facade.removeAttribute('tabindex');
+  }
+
+  facade.addEventListener('click', loadMap, { once: true });
+  facade.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadMap(); }
+  });
+})();
+</script>
+
+<!--
+  Опційне покращення: замість темного плейсхолдера — статичний скріншот
+  карти (img/map-preview.webp, ~30 KB, зробити вручну скріншот потрібної
+  ділянки) як background-image фасаду. Виглядає як «жива» карта,
+  але важить 30 KB замість 1.5 MB.
+-->

@@ -1,0 +1,10 @@
+# robots.txt — MF Tires Hub (mftireshub.pp.ua)
+# Покласти в корінь репозиторію (поруч з index.html)
+
+User-agent: *
+Allow: /
+
+# Службові директорії не для індексу
+Disallow: /audit/
+
+Sitemap: https://mftireshub.pp.ua/sitemap.xml

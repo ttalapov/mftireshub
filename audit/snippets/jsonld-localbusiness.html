@@ -1,0 +1,95 @@
+<!--
+  JSON-LD LocalBusiness для MF Tires Hub
+  Замінити поточний блок index.html:33–60.
+
+  Структура: два графіки через department —
+  • Головний бізнес (AutoPartsStore, відділ продажів): ЩОДНЯ 08:00–20:00
+    ⚠️ години 8:00–20:00 взяті зі старого JSON-LD — ПІДТВЕРДИТИ у власника!
+  • Підрозділ «Вантажний шиномонтаж» (AutoRepair): Пн–Пт 09:00–18:00
+    (збігається з фліп-карткою «Режим роботи» на сайті)
+
+  Типи: AutoPartsStore (продаж шин/дисків; схеми TireShop у schema.org
+  не існує, це найближчий валідний тип) + AutoRepair для шиномонтажу.
+  Координати: з наявного Google Maps embed (50.4167967, 30.4093055).
+  Перевірка після вставки: https://search.google.com/test/rich-results
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoPartsStore",
+  "@id": "https://mftireshub.pp.ua/#business",
+  "name": "MF Tires Hub",
+  "description": "Продаж нових та вживаних вантажних шин, дисків, ремонт шин і вантажний шиномонтаж у Києві. Доставка по Україні.",
+  "url": "https://mftireshub.pp.ua/",
+  "telephone": "+380631715111",
+  "email": "mftireshub@gmail.com",
+  "image": "https://mftireshub.pp.ua/img/og-image.jpg",
+  "logo": "https://mftireshub.pp.ua/img/logo.jpg",
+  "priceRange": "$$",
+  "currenciesAccepted": "UAH",
+  "paymentAccepted": "Cash, Card",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "вул. Родини Бунґе, 7",
+    "addressLocality": "Київ",
+    "postalCode": "03061",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.4167967,
+    "longitude": 30.4093055
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=MF+TIRES+HUB+%D0%9A%D0%B8%D1%97%D0%B2",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    }
+  ],
+  "department": {
+    "@type": "AutoRepair",
+    "name": "MF Tires Hub — Вантажний шиномонтаж",
+    "telephone": "+380631715111",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "вул. Родини Бунґе, 7",
+      "addressLocality": "Київ",
+      "postalCode": "03061",
+      "addressCountry": "UA"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ]
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Київ" },
+    { "@type": "Country", "name": "Україна" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61572018833529",
+    "https://www.instagram.com/mftireshub.ua",
+    "https://t.me/mftireshub",
+    "https://www.tiktok.com/@mf.tires.hub"
+  ]
+}
+</script>
+<!--
+  ⚠️ Перед вставкою підтвердити у власника:
+  1. Графік відділу продажів: щодня 08:00–20:00? (взято зі старого JSON-LD;
+     «щодня» підтверджено, точні години — ні)
+  2. postalCode 03061 — припущення за районом, перевірити.
+
+  Рекомендація до контенту сайту (поза цим сніпетом):
+  - Фліп-картку «Режим роботи» підписати явно: «Графік шиномонтажу»,
+    і додати рядок «Відділ продажів — щодня 8:00–20:00» (index.html:412–424).
+  - Текст «Ми на зв'язку щодня» (index.html:589) — правильний, лишити;
+    можна підсилити: «Ми на зв'язку щодня з 8:00 до 20:00».
+-->
