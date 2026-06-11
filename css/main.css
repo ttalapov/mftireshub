@@ -201,7 +201,9 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #c9181e;
+  /* #ef4444 замість бренд-червоного: дрібний текст на темному,
+     #c9181e дає лише 3.2:1 (WCAG AA вимагає 4.5:1) */
+  color: #ef4444;
   background: rgba(201,24,30,0.1);
   border: 1px solid rgba(201,24,30,0.25);
   padding: 0.25rem 0.875rem;
@@ -465,8 +467,8 @@ body {
 .tag-btn {
   cursor: pointer;
   background: transparent;
-  border: 1px solid rgba(201,24,30,0.35);
-  color: #c9181e;
+  border: 1px solid rgba(239,68,68,0.5);
+  color: #ef4444;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
@@ -530,4 +532,62 @@ body {
 .flip-card-back::-webkit-scrollbar-thumb {
   background: rgba(201,24,30,0.4);
   border-radius: 2px;
+}
+
+
+/* ================================================
+   Доступність (пакет 3 з audit/00-action-plan.md)
+   ================================================ */
+
+/* ---- Світлий червоний для дрібного тексту на темному ----
+   #c9181e на #131313 = 3.2:1; #ef4444 = 4.9:1 (WCAG AA) */
+.text-red-lite {
+  color: #ef4444;
+}
+
+/* ---- Месенджери: фони з контрастом >=4.5:1 до білого тексту ----
+   Брендові #2AABEE (2.6:1) і #25D366 (2.0:1) провалюють AA */
+.messenger-btn--tg { background: #176f9e; }
+.messenger-btn--tg:hover { background: #135d85; }
+.messenger-btn--wa { background: #0f7a40; }
+.messenger-btn--wa:hover { background: #0c6434; }
+
+/* ---- Видимий фокус для клавіатури ---- */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Tap-фідбек (preflight вимикає tap-highlight) ---- */
+.btn-primary:active,
+.btn-secondary:active,
+.messenger-btn:active,
+.tag-btn:active,
+.social-icon:active,
+.fab-call:active {
+  transform: scale(0.96);
+}
+
+/* ---- Поважаємо системне "менше руху" ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* scroll-reveal: показати одразу, без зсуву */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
