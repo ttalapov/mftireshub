@@ -38,13 +38,15 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": ["AutoRepair", "Store"],
+    "@type": "AutoPartsStore",
+    "@id": "https://mftireshub.pp.ua/#business",
     "name": "MF Tires Hub",
-    "description": "Продаж нових та вживаних вантажних шин, ремонт шин, вантажний шиномонтаж",
-    "url": "https://mftireshub.pp.ua",
+    "description": "Продаж нових та вживаних вантажних шин, дисків, ремонт шин і вантажний шиномонтаж у Києві. Доставка по Україні.",
+    "url": "https://mftireshub.pp.ua/",
     "telephone": "+380631715111",
     "email": "mftireshub@gmail.com",
     "image": "https://mftireshub.pp.ua/img/og-image.jpg",
+    "logo": "https://mftireshub.pp.ua/img/logo.jpg",
     "priceRange": "$$",
     "currenciesAccepted": "UAH",
     "paymentAccepted": "Cash, Card",
@@ -52,9 +54,47 @@
       "@type": "PostalAddress",
       "streetAddress": "вул. Родини Бунґе, 7",
       "addressLocality": "Київ",
+      "postalCode": "03134",
       "addressCountry": "UA"
     },
-    "openingHours": "Mo-Su 08:00-20:00",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.4167967,
+      "longitude": 30.4093055
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=MF+TIRES+HUB+%D0%9A%D0%B8%D1%97%D0%B2",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      }
+    ],
+    "department": {
+      "@type": "AutoRepair",
+      "name": "MF Tires Hub — Вантажний шиномонтаж",
+      "telephone": "+380631715111",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "вул. Родини Бунґе, 7",
+        "addressLocality": "Київ",
+        "postalCode": "03134",
+        "addressCountry": "UA"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ]
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Київ" },
+      { "@type": "Country", "name": "Україна" }
+    ],
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61572018833529",
       "https://www.instagram.com/mftireshub.ua",
