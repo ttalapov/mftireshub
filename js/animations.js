@@ -51,6 +51,12 @@
   const stats = document.querySelectorAll('.stat-number[data-target]');
   if (!stats.length) return;
 
+  // У HTML стоять фінальні числа (для краулерів і користувачів без JS);
+  // обнуляємо їх лише коли JS точно працює — анімація стартує з 0.
+  stats.forEach(function (el) {
+    el.childNodes[0].textContent = '0';
+  });
+
   function easeOut(t) {
     return 1 - Math.pow(1 - t, 3);
   }
