@@ -591,3 +591,87 @@ button:focus-visible,
     transform: none;
   }
 }
+
+
+/* ================================================
+   Flip card — доступність та touch-targets (пакет 4)
+   ================================================ */
+
+/* WCAG 2.5.5: мінімум 44px для touch-targets */
+.flip-trigger {
+  min-height: 44px;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
+/* ✕ кнопка закриття у відкритому back-face */
+.flip-close-btn {
+  align-self: flex-end;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888888;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-bottom: 0.25rem;
+}
+.flip-close-btn:hover { color: #ffffff; }
+
+/* Базові стилі контенту back-face */
+.flip-back-content {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  width: 100%;
+  color: #c8c8c8;
+}
+
+/* 4-колонна сітка брендів: 2-col мобільний → 4-col > 400px */
+.flip-back-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.45rem 0.75rem;
+}
+@media (min-width: 400px) {
+  .flip-back-grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* 2-колонна сітка розмірів */
+.flip-back-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+
+/* Сітка розкладу шиномонтажу */
+.flip-back-grid-sched {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  gap: 0.45rem 1.5rem;
+}
+
+/* Заголовок підрозділу (R17.5, R22.5 тощо) */
+.flip-back-h {
+  color: #ef4444;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  margin-bottom: 0.2rem;
+}
+.flip-back-h--mt { margin-top: 0.65rem; }
+
+/* Виділені бренди / назви днів */
+.flip-back-brand,
+.flip-back-day { color: #ef4444; }
+
+/* Час у розкладі */
+.flip-back-time { color: #c8c8c8; }
