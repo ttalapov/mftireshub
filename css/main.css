@@ -510,6 +510,16 @@ body {
 }
 
 
+/* ---- Hero <picture> wrapper ----
+   <picture> інлайновий за замовчуванням; без block/розмірів
+   фонове фото hero не розтягнеться на всю секцію */
+.hero-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
 /* ---- Тонкий скролбар у flip-back ---- */
 .flip-card-back::-webkit-scrollbar {
   width: 3px;
