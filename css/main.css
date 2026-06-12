@@ -281,7 +281,10 @@ body {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
   color: #888888;
-  padding: 0.2rem 0.6rem;
+  padding: 0.625rem 0.75rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   border-radius: 9999px;
 }
 
@@ -597,11 +600,9 @@ button:focus-visible,
    Flip card — доступність та touch-targets (пакет 4)
    ================================================ */
 
-/* WCAG 2.5.5: мінімум 44px для touch-targets */
+/* WCAG 2.5.5: мінімум 44px для touch-targets — задано в .tag */
 .flip-trigger {
-  min-height: 44px;
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
+  cursor: pointer;
 }
 
 /* ✕ кнопка закриття у відкритому back-face */
