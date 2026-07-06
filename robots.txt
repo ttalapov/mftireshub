@@ -1,10 +1,63 @@
 # robots.txt — MF Tires Hub (mftireshub.pp.ua)
 # Покласти в корінь репозиторію (поруч з index.html)
 
+# --- Усі пошукові боти ---
 User-agent: *
 Allow: /
-
-# Службові директорії не для індексу
 Disallow: /audit/
+Disallow: /*.md$
+
+# --- AI / генеративні пошукові краулери: доступ ДОЗВОЛЕНО ---
+# (GEO/AEO — навмисно не блокуємо, щоб контент потрапляв у AI-відповіді)
+
+User-agent: GPTBot
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /audit/
+Disallow: /*.md$
 
 Sitemap: https://mftireshub.pp.ua/sitemap.xml
